@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./styles/main.css/login.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="light-mode">
+    <div class="container" id="toggleButton">
+        <img class="nightmode" src="./images/night-mode.png" alt="Toggle Night Mode" height="30">
+    </div>
+
+    <main class="login-container">
+        <h2>Login</h2>
+        <form action="/check" method="POST">
+            <input type="text" placeholder="Username" name="Username" required>
+            <div class="password-container"> 
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <span class="toggle-eye" id="togglePassword"><img src="./images/eye.png" alt="Toggle Password Visibility" height="20"></span>
+            </div>
+            <button class="hvr-glow" type="submit">Submit</button>
+        </form>
+    </main>
+
+    <script>
+        $(document).ready(function() {
+            $('#toggleButton').on('click', function() {
+                $('body').toggleClass('light-mode dark-mode');
+            });
+
+            $('#togglePassword').on('click', function() {
+                const passwordInput = $('#password');
+                const type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
+                passwordInput.attr('type', type);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<script>
+    $(document).ready(function() {
+        $('#thoughtForm').on('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            const titleText = $('#title').val().trim(); // Updated to match the ID in HTML
+            const commentText = $('#thoughts').val().trim(); // Updated to match the ID in HTML
+    
+            if (titleText && commentText) {
+                const commentDiv = $('<div class="comment"></div>');
+                const titleElement = $('<h3></h3>').text(titleText);
+                const paragraphElement = $('<p></p>').text(commentText);
+    
+                // Create a time element
+                const timeElement = $('<time></time>');
+                const now = new Date();
+                timeElement.text(now.toLocaleString()); // Format: MM/DD/YYYY, HH:MM AM/PM
+    
+                const deleteButton = $('<button class="delete-button">Delete</button>').on('click', function() {
+                    commentDiv.remove();
+                });
+    
+                commentDiv.append(titleElement, paragraphElement, timeElement, deleteButton);
+                $('#comment-list').append(commentDiv);
+    
+                // Clear inputs after submission
+                $('#title').val(''); // Updated to match the ID in HTML
+                $('#thoughts').val(''); // Updated to match the ID in HTML
+            }
+        });
+    });
+</script>
+</body>
+</html>
+

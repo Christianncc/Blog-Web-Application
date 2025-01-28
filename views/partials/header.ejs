@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css/body.css"> <!-- Ensure this path is correct -->
+    <title>Thoughts Post</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Forum</h1>
+        <h2>Title of the Game</h2>
+        <form id="thoughtForm" action="/Body" method="POST">
+            <input type="text" id="title" name="title" placeholder="Enter Title" required>
+            <textarea id="thoughts" name="thoughts" rows="4" required></textarea>
+            <button type="submit" id="submit-comment">Submit</button>
+        </form>
